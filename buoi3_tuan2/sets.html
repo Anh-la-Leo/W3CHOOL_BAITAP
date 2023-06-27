@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sets</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        //The new Set() Method
+        const letters = new Set(["a", "b", "c"]);
+        document.getElementById("demo").innerHTML = letters.size;
+
+        {
+            const letters = new Set();
+
+            letters.add("a");
+            letters.add("b");
+            letters.add("c");
+
+            document.getElementById("demo").innerHTML = letters.size;
+        }
+
+        //The add() Method
+        {
+            const letters = new Set(["a", "b", "c"]);
+
+            letters.add("d");
+            letters.add("e");
+
+            document.getElementById("demo").innerHTML = letters.size;
+        }
+
+        {
+            const letters = new Set();
+
+            letters.add("a");
+            letters.add("b");
+            letters.add("c");
+            letters.add("c");
+            letters.add("c");
+            letters.add("c");
+            letters.add("c");
+            letters.add("c");
+            //If you add equal elements, only the first will be saved:
+            document.getElementById("demo").innerHTML = letters.size; //3
+        }
+
+        //The forEach() Method
+        {
+            const letters = new Set(["a", "b", "c"]);
+
+            let text = "";
+            letters.forEach(function (value) {
+                text += value + "<br>";
+            })
+
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        //The values() Method
+        {
+            const letters = new Set(["a", "b", "c"]);
+
+            document.getElementById("demo").innerHTML = letters.values(); //[object Set Iterator]
+
+            let text = "";
+            for (const x of letters.values()) {
+                text += x + "<br>";
+            }
+
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        //The keys() Method
+        {
+            const letters = new Set(["a", "b", "c"]);
+
+            document.getElementById("demo").innerHTML = letters.keys();
+        }
+
+        //The entries() Method
+        {
+            const letters = new Set(["a", "b", "c"]);
+
+            const iterator = letters.entries();
+            let text = "";
+            for (const entry of iterator) {
+                text += entry + "<br>";
+            }
+
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        //Sets are Objects
+        {
+            const letters = new Set(["a", "b", "c"]);
+
+            document.getElementById("demo").innerHTML = letters instanceof Set;
+            document.getElementById("demo").innerHTML = typeof letters;
+
+        }
+    </script>
+</body>
+
+</html>

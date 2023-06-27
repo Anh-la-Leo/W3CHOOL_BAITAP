@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+
+        const myFather = new Person("John", "Doe", 50, "blue");
+
+        document.getElementById("demo").innerHTML =
+            "My father is " + myFather.age + ".";
+
+        //Object Types
+        {
+            const myFather = new Person("John", "Doe", 50, "blue");
+            const myMother = new Person("Sally", "Rally", 48, "green");
+
+            document.getElementById("demo").innerHTML =
+                "My father is " + myFather.age + ". My mother is " + myMother.age + ".";
+        }
+
+        //Adding a Property to an Object
+        {
+            myFather.nationality = "English";
+
+            document.getElementById("demo").innerHTML =
+                "My father is " + myFather.nationality;
+        }
+
+        //Adding a Method to an Object
+        {
+            myFather.name = function () {
+                return this.firstName + " " + this.lastName;
+            };
+
+            document.getElementById("demo").innerHTML =
+                "My father is " + myFather.name();
+        }
+
+        //Adding a Property to a Constructor
+        {
+            // You can NOT add a new property to a constructor function
+            Person.nationality = "English";
+
+            const myFather = new Person("John", "Doe", 50, "blue");
+            const myMother = new Person("Sally", "Rally", 48, "green");
+
+            document.getElementById("demo").innerHTML =
+                "The nationality of my father is " + myFather.nationality;
+        }
+
+        {
+            function Person(first, last, age, eye) {
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.eyeColor = eye;
+                this.nationality = "English";
+            }
+
+            const myFather = new Person("John", "Doe", 50, "blue");
+            const myMother = new Person("Sally", "Rally", 48, "green");
+
+            document.getElementById("demo").innerHTML =
+                "My father is " + myFather.nationality + ". My mother is " + myMother.nationality;
+        }
+
+        //Adding a Method to a Constructor
+        {
+            function Person(first, last, age, eye) {
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.eyeColor = eye;
+                this.name = function () {
+                    return this.firstName + " " + this.lastName
+                };
+            }
+
+            const myFather = new Person("John", "Doe", 50, "blue");
+
+            document.getElementById("demo").innerHTML =
+                "My father is " + myFather.name();
+        }
+
+        {
+            function Person(firstName, lastName, age, eyeColor) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.eyeColor = eyeColor;
+                this.changeName = function (name) {
+                    this.lastName = name;
+                }
+            }
+            const myMother = new Person("Sally", "Rally", 48, "green");
+
+            myMother.changeName("Doe");
+
+            document.getElementById("demo").innerHTML =
+                "My mother's last name is " + myMother.lastName;
+        }
+
+        //Built-in JavaScript Constructors
+        {
+            const x1 = new String();   // A new String object
+            const x2 = new Number();   // A new Number object
+            const x3 = new Boolean();  // A new Boolean object
+            const x4 = new Object();   // A new Object object
+            const x5 = new Array();    // A new Array object
+            const x6 = new RegExp();   // A new RegExp object
+            const x7 = new Function(); // A new Function object
+            const x8 = new Date();     // A new Date object
+
+            // Display the type of all objects
+            document.getElementById("demo").innerHTML =
+                "x1: " + typeof x1 + "<br>" +
+                "x2: " + typeof x2 + "<br>" +
+                "x3: " + typeof x3 + "<br>" +
+                "x4: " + typeof x4 + "<br>" +
+                "x5: " + typeof x5 + "<br>" +
+                "x6: " + typeof x6 + "<br>" +
+                "x7: " + typeof x7 + "<br>" +
+                "x8: " + typeof x8 + "<br>";
+        }
+
+        {
+            let x1 = "";      // string 
+            let x2 = 0;       // number
+            let x3 = false;   // boolean
+            const x4 = {};    // Object object
+            const x5 = [];    // Array object
+            const x6 = /()/;  // RegExp object
+            const x7 = function () { };  // function
+
+            // Display the type of all
+            document.getElementById("demo").innerHTML =
+                "x1: " + typeof x1 + "<br>" +
+                "x2: " + typeof x2 + "<br>" +
+                "x3: " + typeof x3 + "<br>" +
+                "x4: " + typeof x4 + "<br>" +
+                "x5: " + typeof x5 + "<br>" +
+                "x6: " + typeof x6 + "<br>" +
+                "x7: " + typeof x7 + "<br>";
+        }
+    </script>
+</body>
+
+</html>

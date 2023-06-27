@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        //new Map()
+        const fruits = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        document.getElementById("demo").innerHTML = fruits.get("apples");
+
+        //Map.set()
+        {
+            const fruits = new Map();
+
+            fruits.set("apples", 500);
+            fruits.set("bananas", 300);
+            fruits.set("oranges", 200);
+
+            document.getElementById("demo").innerHTML = fruits.get("apples");
+            //change value
+            fruits.set("apples", 200);
+            document.getElementById("demo").innerHTML = fruits.get("apples");
+        }
+
+        //Map.get()
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            document.getElementById("demo").innerHTML = fruits.get("apples");
+        }
+
+        //Map.size
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            document.getElementById("demo").innerHTML = fruits.size;
+        }
+
+        //Map.delete()
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            fruits.delete("apples");
+
+            document.getElementById("demo").innerHTML = fruits.size;
+        }
+
+        //Map.clear()
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            fruits.clear();
+
+            document.getElementById("demo").innerHTML = fruits.size;
+        }
+
+
+        //Map.has()
+
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            document.getElementById("demo").innerHTML = fruits.has("apples"); //true
+
+            fruits.delete("apples");
+            document.getElementById("demo").innerHTML = fruits.has("apples");//false
+        }
+
+        //Maps are Objects
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            document.getElementById("demo").innerHTML = typeof fruits;
+            document.getElementById("demo").innerHTML = fruits instanceof Map;
+        }
+
+
+        //Map.forEach()
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            let text = "";
+            fruits.forEach(function (value, key) {
+                text += key + ' = ' + value + "<br>"
+            })
+
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        //Map.entries()
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            let text = "";
+            for (const x of fruits.entries()) {
+                text += x + "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        //Map.keys()
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            let text = "";
+            for (const x of fruits.keys()) {
+                text += x + "<br>";
+            }
+
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        //Map.values()
+        {
+            const fruits = new Map([
+                ["apples", 500],
+                ["bananas", 300],
+                ["oranges", 200]
+            ]);
+
+            let text = "";
+            for (const x of fruits.values()) {
+                text += x + "<br>";
+            }
+
+            document.getElementById("demo").innerHTML = text;
+
+            let total = 0;
+            for (const x of fruits.values()) {
+                total += x;
+            }
+
+            document.getElementById("demo").innerHTML = total;
+        }
+
+        //Objects as Keys
+        {
+            const apples = { name: 'Apples' };
+            const bananas = { name: 'Bananas' };
+            const oranges = { name: 'Oranges' };
+
+            // Create a Map
+            const fruits = new Map();
+
+            // Add the Objects to the Map
+            fruits.set(apples, 500);
+            fruits.set(bananas, 300);
+            fruits.set(oranges, 200);
+            document.getElementById("demo").innerHTML = fruits.get(apples);
+        }
+    </script>
+</body>
+
+</html>

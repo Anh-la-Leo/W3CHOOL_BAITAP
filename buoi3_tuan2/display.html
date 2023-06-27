@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display </title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        const person = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        };
+
+        document.getElementById("demo").innerHTML = person;
+
+        //Displaying Object Properties
+        document.getElementById("demo").innerHTML = person.name + ", " + person.age + ", " + person.city;
+
+        //Displaying the Object in a Loop
+        let txt = "";
+        for (let x in person) {
+            txt += person[x] + " ";
+        };
+
+        document.getElementById("demo").innerHTML = txt;
+
+        //Using Object.values()
+        document.getElementById("demo").innerHTML = Object.values(person);
+
+        //Using JSON.stringify()
+        document.getElementById("demo").innerHTML = JSON.stringify(person);
+
+        //Stringify Dates
+        {
+            let person = {
+                name: "John",
+                today: new Date()
+            };
+
+            document.getElementById("demo").innerHTML = JSON.stringify(person);
+        }
+
+        //Stringify Functions
+        {
+            const person = {
+                name: "John",
+                age: function () { return 30; }
+            };
+
+            document.getElementById("demo").innerHTML = JSON.stringify(person);
+            //fix
+            person.age = person.age.toString();
+            document.getElementById("demo").innerHTML = JSON.stringify(person);
+        }
+
+        //Stringify Arrays
+        const arr = ["John", "Peter", "Sally", "Jane"];
+        document.getElementById("demo").innerHTML = JSON.stringify(arr);
+    </script>
+</body>
+
+</html>
