@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strings</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+    let answer1 = "It's alright";
+    let answer2 = "He is called 'Johnny'";
+    let answer3 = 'He is called "Johnny"';
+
+    document.querySelector("#demo").innerHTML =
+        answer1 + "<br>" + answer2 + "<br>" + answer3
+
+    //Độ dài chuỗi
+    console.log(answer3.length)
+
+    //Ký tự thoát dấu gạch chéo ngược ( \) biến các ký tự đặc biệt thành ký tự chuỗi:
+    let text = "We are the so-called \"Vikings\" from the north.";
+    document.getElementById("demo1").innerHTML = text;
+
+    //Chuỗi JavaScript dưới dạng đối tượng
+    // x is a string
+    let x = "John";
+
+    // y is an object
+    let y = new String("John");
+
+    document.getElementById("demo2").innerHTML =
+        typeof x + "<br>" + typeof y;
+
+    //So sánh 2 đối tượng luôn trả về false
+    let a = new String("John");  // a is an object
+    let b = new String("John");  // b is an object
+    document.getElementById("demo3").innerHTML = (a===b);
+</script>
+</body>
+</html>

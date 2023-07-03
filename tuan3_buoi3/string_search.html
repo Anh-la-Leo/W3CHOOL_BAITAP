@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String search</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+    /**
+     * indexOf() trả về chỉ mục (vị trí) lần xuất hiện đầu tiên của một chuỗi trong một chuỗi
+     * lastIndexOf() trả về chỉ mục của lần xuất hiện cuối cùng của một văn bản đã chỉ định trong một chuỗi
+     * Cả hai indexOf()và lastIndexOf()trả về -1 nếu không tìm thấy văn bản
+     * Cả hai phương pháp đều chấp nhận tham số thứ hai làm vị trí bắt đầu tìm kiếm . Syntax:  indexOf("Chuỗi tìm kiếm", vị trí bắt đầu tìm kiếm)
+     **/
+
+  //search() tìm kiếm một chuỗi cho một chuỗi -> trả về vị trí của chuỗi
+  // match()trả về một mảng chứa kết quả khớp một chuỗi với một chuỗi
+    let text = "The rain in SPAIN stays mainly in the plain";
+    const myArr = text.match(/ain/gi);
+    document.getElementById("demo").innerHTML = myArr.length + " " + myArr;
+
+
+    //matchAll() trả về một iterator chứa kết quả so khớp một chuỗi với một chuỗi
+    let text1 = "I love cats. Cats are very easy to love. Cats are very popular."
+    const iterator = text1.matchAll("Cats");
+
+    document.getElementById("demo2").innerHTML = Array.from(iterator);
+
+
+    //includes() trả về true nếu một chuỗi chứa một giá trị được chỉ định
+    let text2 = "Hello world, welcome to the universe.";
+    document.getElementById("demo3").innerHTML = text2.includes("world"); //Kiểm tra xem một chuỗi có bao gồm "world" không
+    document.getElementById("demo3").innerHTML = text2.includes("world"); //Kiểm tra xem một chuỗi có bao gồm "thế giới" không. Bắt đầu ở vị trí 12
+
+
+    //startsWith()thức trả về true nếu một chuỗi bắt đầu bằng một giá trị được chỉ định. Syntax: string.startsWith("string")
+
+    //endsWith()thức trả về true nếu một chuỗi kết thúc với một giá trị được chỉ định
+</script>
+</body>
+</html>

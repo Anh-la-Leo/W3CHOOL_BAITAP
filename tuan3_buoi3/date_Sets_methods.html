@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date sets Methods</title>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+  //setFullYear()-> đặt năm của một đối tượng ngày tháng
+  const d = new Date();
+  d.setFullYear(2020);
+
+  // setFullYear()thức có thể tùy chọn đặt tháng và ngày
+  const day = new Date();
+  day.setFullYear(2020, 11, 3);
+
+  //setMonth()-> đặt tháng của một đối tượng ngày (0-11)
+  const m = new Date();
+  m.setMonth(11);
+
+
+  //setDate()thức đặt ngày của đối tượng ngày (1-31):
+  const da = new Date();
+  da.setDate(15);
+
+  //setHours()-> đặt giờ của một đối tượng ngày (0-23)
+  const h = new Date();
+  h.setHours(22);
+
+
+  //setMinutes()-> đặt số phút của đối tượng ngày (0-59):
+  const n = new Date();
+  n.setMinutes(30);
+
+  //setSeconds()-> đặt giây của đối tượng ngày (0-59):
+  const s = new Date();
+  s.setSeconds(30);
+
+
+  //So sánh ngày
+  // Ngày có thể dễ dàng được so sánh.
+  // Ví dụ sau so sánh ngày hôm nay với ngày 14 tháng 1 năm 2100:
+
+  let text = "";
+  const today = new Date();
+  const someday = new Date();
+  someday.setFullYear(2100, 0, 14);
+
+  if (someday > today) {
+    text = "Today is before January 14, 2100.";
+  } else {
+    text = "Today is after January 14, 2100.";
+  }
+
+  document.querySelector("#demo").innerHTML = text
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript String Methods</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3">Kiên Trung</p>
+<button onclick="changeText()">Click me</button>
+
+<p id="demo4"></p>
+<p id="demo5"></p>
+<script>
+  //Độ dài chuỗi
+  let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  console.log(text.length)
+
+  /**
+   * Trích xuất các phần chuỗi
+   * Có 3 phương pháp để trích xuất một phần của chuỗi:
+   * slice(start, end)
+   * substring(start, end)
+   * substr(start, length)*/
+
+
+  //slice() -> trích xuất một phần của chuỗi và trả về phần được trích xuất trong một chuỗi mớ (nhận 2 tham số pt bắt đầu và pt kết thúc)
+          //Nếu bạn bỏ qua tham số thứ hai, phương thức sẽ cắt bỏ phần còn lại của chuỗi
+  let arr = "Apple, Banana, Kiwi";
+  let part = arr.slice(7,13);
+  document.getElementById("demo").innerHTML = part;
+
+  //substring() -> tương tự như slice(). Sự khác biệt là các gtri bắt đầu và kết thúc nhở hơn 0 được coi là 0
+  let str = "Apple, Banana, Kiwi";
+  document.getElementById("demo1").innerHTML = str.substring(-1,13);
+
+
+  //substr() -> tương tự slice() . Sự khác biệt là tham số thứ hai chỉ định độ dài của phần được trích xuất.
+  //Nếu bạn bỏ qua tham số thứ hai, substr()sẽ cắt bỏ phần còn lại của chuỗi.
+  //Nếu tham số đầu tiên là số âm, vị trí sẽ được tính từ cuối chuỗi.
+  let str2 = "Apple, Banana, Kiwi";
+  document.getElementById("demo2").innerHTML = str2.substr(0,6);
+
+
+  //replace() -> thay thế một giá trị đã chỉ định bằng một giá trị khác trong chuỗi
+    function changeText(){
+        let text = document.querySelector("#demo3").innerHTML
+        document.querySelector("#demo3").innerHTML = text.replace("Kiên Trung", "Lê Ngọc Kiên Trung")
+    }
+
+
+    //ReplaceAll()
+  let text2 = "I love cats. Cats are very easy to love. Cats are very popular."
+  text2 = text2.replaceAll("Cats","Dogs");
+  text2 = text2.replaceAll("cats","dogs");
+
+  document.getElementById("demo4").innerHTML = text2;
+
+  //Một chuỗi được chuyển thành chữ hoa với toUpperCase():
+
+  // Một chuỗi được chuyển đổi thành chữ thường với toLowerCase()
+
+  //concat() nối chuỗi -> arr1.concat(" ", arr2)
+
+  //trim()thức xóa khoảng trắng ở cả hai phía của chuỗi
+
+  //trimStart()hoạt động như trim(), nhưng chỉ loại bỏ khoảng trắng ở đầu chuỗi
+
+  //trimEnd()hoạt động như trim(), nhưng chỉ loại bỏ khoảng trắng ở cuối chuỗi.
+
+  //padStart() đệm chuỗi. đệm một chuỗi bằng một chuỗi khác (nhiều lần) cho đến khi đạt đến độ dài nhất định.
+
+  //padEnd() đệm một chuỗi từ cuối.
+
+  //charAt(vị trí) trả về ký tự tại một chỉ mục (vị trí) được chỉ định trong một chuỗi
+
+  //split() -> chuyển đổi 1 chuỗi thành 1 mảng
+  let text3 = "a,b,c,d,e,f";
+  const myArray = text3.split(",");
+  document.getElementById("demo5").innerHTML = myArray[0];
+</script>
+</body>
+</html>

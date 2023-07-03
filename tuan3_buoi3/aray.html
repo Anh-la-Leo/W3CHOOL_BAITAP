@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Array</title>
+</head>
+<body>
+<!--Mảng là một biến đặc biệt, có thể chứa nhiều hơn một giá trị:-->
+<script>
+  const cars = ["Saab", "Volvo", "BMW"];
+
+  //Truy cập 1 phần tử của mảng
+  let car = cars[0];
+
+  //Thay đổi phần tử mảng
+  cars[0] = "Opel";
+
+  //Chuyển đổi mảng thành chuỗi
+  cars.toString()
+
+  cars.length   // Độ dài mảng
+  cars.sort()   // Sắp xếp mảng
+
+  //Truy cập phần tử mảng cuối cùng
+  let end = cars[cars.length - 1];
+
+  //Lặp các phần tử mảng
+  for (let i = 0; i < cars.length; i++) {
+    console.log(cars[i])
+  }
+
+  //Thêm phần tử vafp mảng
+  cars.push("Lemon")
+</script>
+</body>
+</html>

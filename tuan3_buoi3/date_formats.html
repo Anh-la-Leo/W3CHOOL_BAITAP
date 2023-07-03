@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date Formats</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+  //ISO 8601 là tiêu chuẩn quốc tế về biểu diễn ngày và giờ.
+  // Cú pháp ISO 8601 (YYYY-MM-DD) cũng là định dạng ngày ưa thích của JavaScript:
+  const d = new Date("2015-03-25");
+  document.getElementById("demo").innerHTML = d;
+
+  //ISO Dates (Year and Month)
+  // Ngày ISO có thể được viết mà không cần chỉ định ngày (YYYY-MM):
+  const e = new Date("2015-03");
+
+
+  //ISO Dates (Only Year)
+  //Ngày ISO có thể được viết mà không có tháng và ngày (YYYY):
+  const g = new Date("2015");
+
+  //ISO Dates (Date-Time)
+  //Ngày ISO có thể được viết với giờ, phút và giây được thêm vào (YYYY-MM-DDTHH:MM:SSZ):
+  const f = new Date("2015-03-25T12:00:00Z");
+
+
+  //JavaScript Short Dates
+  //Ngày ngắn được viết bằng cú pháp "MM/DD/YYYY" như sau:
+  const j = new Date("03/25/2015");
+
+  ////JavaScript Long Dates
+  //Ngày tháng dài thường được viết với cú pháp "MMM DD YYYY" như sau:
+  const k = new Date("Mar 25 2015");
+
+
+  //Date Input - Parsing Dates
+//Nếu bạn có một chuỗi ngày hợp lệ, bạn có thể sử dụng phương thức Date.parse() để chuyển đổi nó thành mili giây.
+  const msec = Date.parse("March 21, 2012");
+</script>
+</body>
+</html>

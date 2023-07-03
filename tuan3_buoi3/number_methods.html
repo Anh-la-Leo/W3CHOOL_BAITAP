@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Methods</title>
+</head>
+<body>
+<!--
+toString() -> Trả về một số dưới dạng chuỗi
+toExponential() ->	Trả về một số được viết bằng ký hiệu hàm mũ
+toFixed() ->	Trả về một số được viết với một số thập phân
+toPrecision() ->	Trả về một số được viết với độ dài xác định
+-->
+
+<script>
+    //toString() => Trả về 1 số dưới dạng 1 chuỗi
+    let x = 123;
+    x.toString()
+
+    //toExponential() => trả về một chuỗi, với một số được làm tròn và được viết bằng ký hiệu hàm mũ
+    let y = 9.656;
+    y.toExponential(2) //-> 9.66e+0
+
+
+    //toFixed() -> trả về một chuỗi, với số được viết bằng một số thập phân được chỉ định
+    let z = 9.656;
+    x.toFixed(0) // -> 10
+    x.toFixed(2) // -> 9.66
+    x.toFixed(4) // -> 9.6560
+    x.toFixed(6); // -> 9.656000
+
+    // toPrecision() -> trả về một chuỗi, với một số được viết với độ dài được chỉ định:
+
+    //valueOf() -> trả về một số dưới dạng một số.
+
+    //parseFloat() -> Phân tích cú pháp đối số của nó và trả về một số dấu phẩy động
+
+    //parseInt() ->	Phân tích đối số của nó và trả về một số nguyên
+
+    //Number() -> có thể được sử dụng để chuyển đổi các biến JavaScript thành số
+
+
+</script>
+</body>
+</html>

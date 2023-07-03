@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lặp lại mảng</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo11"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+<script>
+  //forEach() -> gọi một hàm (hàm gọi lại) một lần cho mỗi phần tử mảng
+  const numbers = [45, 4, 9, 16, 25];
+
+  let txt = "";
+  numbers.forEach(myFunction);
+  document.getElementById("demo").innerHTML = txt;
+
+  function myFunction(value, index, array) {
+    txt += value + "<br>";
+  }
+
+  // Phương map()thức tạo một mảng mới bằng cách thực hiện một hàm trên mỗi phần tử mảng.
+
+      // Phương map()thức không thực thi hàm đối với các phần tử mảng không có giá trị.
+
+      // Phương thức này map()không thay đổi mảng ban đầu.
+  const numbers1 = [45, 4, 9, 16, 25];
+  const numbers2 = numbers1.map(myFunction);
+
+  document.getElementById("demo1").innerHTML = numbers2;
+
+  function myFunction(value, index, array) {
+      return value * 2;
+  }
+
+  //flatMap() đầu tiên ánh xạ tất cả các phần tử của một mảng và sau đó tạo một mảng mới
+  const myArr = [1, 2, 3, 4, 5,6];
+  const newArr = myArr.flatMap((x) => x * 2);
+  document.getElementById("demo2").innerHTML = newArr;
+
+  //filter()-> tạo một mảng mới với các phần tử mảng vượt qua bài kiểm tra
+  const numbers3 = [45, 4, 9, 16, 25];
+  const over18 = numbers3.filter(myFunction);
+
+  document.getElementById("demo3").innerHTML = over18;
+
+  function myFunction(value, index, array) {
+      return value > 18;
+  }
+
+  //reduce() -> một hàm trên mỗi phần tử mảng để tạo (rút gọn thành) một giá trị đơn
+  const numbers4 = [45, 4, 9, 16, 25];
+  let sum = numbers4.reduce(myFunction);
+
+  document.getElementById("demo4").innerHTML = "The sum is " + sum;
+
+  function myFunction(total, value, index, array) {
+      return total + value;
+  }
+
+  //reduceRight()chạy một hàm trên mỗi phần tử mảng để tạo (rút gọn thành) một giá trị đơn.Chạy từ phải sang trái
+
+  //every() ->  kiểm tra xem tất cả các giá trị mảng có vượt qua bài kiểm tra hay không.
+  const numbers5 = [45, 4, 9, 16, 25];
+  let someOver18 = numbers2.some(myFunction);
+
+  document.getElementById("demo5").innerHTML = "Some over 18 is " + someOver18;
+
+  function myFunction(value, index, array) {
+      return value > 18;
+  }
+
+  //some() -> kiểm tra xem một số giá trị mảng có vượt qua bài kiểm tra hay không
+  const numbers6 = [45, 4, 9, 16, 25];
+  let someOver18p = numbers6.some(myFunction);
+
+  document.getElementById("demo6").innerHTML = "Some over 18 is " + someOver18p;
+
+  function myFunction(value, index, array) {
+      return value > 18;
+  }
+
+
+  //indexOf() -> tìm kiếm một mảng cho một giá trị phần tử và trả về vị trí của nó
+  const fruits = ["Apple", "Orange", "Apple", "Mango"];
+  let position = fruits.indexOf("Apple") + 1;
+
+  document.getElementById("demo7").innerHTML = "Apple is found in position " + position;
+
+  //Array.lastIndexOf() giống như Array.indexOf(), nhưng trả về vị trí xuất hiện cuối cùng của phần tử đã chỉ định.
+
+  //find() -> trả về giá trị của phần tử mảng đầu tiên vượt qua hàm kiểm tra
+  const numbers7 = [4, 9, 16, 25, 29];
+  let first = numbers7.find(myFunction);
+
+  document.getElementById("demo8").innerHTML = "First number over 18 is " + first;
+
+  function myFunction(value, index, array) {
+      return value > 18;
+  }
+
+
+  //findIndex() -> trả về chỉ mục của phần tử mảng đầu tiên vượt qua hàm kiểm tra
+  const numbers8 = [4, 9, 16, 25, 29];
+
+  document.getElementById("demo9").innerHTML = "First number over 18 has index " + numbers8.findIndex(myFunction);
+
+  function myFunction(value, index, array) {
+      return value > 18;
+  }
+
+
+  //Array.from()-> trả về một đối tượng Array từ bất kỳ đối tượng nào có thuộc tính độ dài hoặc bất kỳ đối tượng có thể lặp lại nào.
+  const myArr1 = Array.from("ABCDEFG");
+  document.getElementById("demo10").innerHTML = myArr1;
+
+
+  //Array.keys() trả về một đối tượng Array Iterator với các khóa của một mảng
+  const fruits1 = ["Banana", "Orange", "Apple", "Mango"];
+  const keys = fruits1.keys();
+
+  let text = "";
+  for (let x of keys) {
+      text += x + "<br>";
+  }
+
+  document.getElementById("demo11").innerHTML = text;
+
+
+  //entries()thức trả về một đối tượng Array Iterator với các cặp khóa/giá trị:
+  const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+  const f = fruits2.entries();
+
+  for (let x of f) {
+      document.getElementById("demo12").innerHTML += x + "<br>";
+  }
+
+  //Array.includes()  kiểm tra xem một phần tử có trong một mảng hay không
+  const fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+  document.getElementById("demo13").innerHTML = fruits3.includes("Mango");
+
+
+  //Trải rộng mảng JavaScript (...)
+  // Toán tử ... mở rộng một iterable (như một mảng) thành nhiều phần tử hơn
+  const q1 = ["Jan", "Feb", "Mar"];
+  const q2 = ["Apr", "May", "Jun"];
+  const q3 = ["Jul", "Aug", "Sep"];
+  const q4 = ["Oct", "Nov", "May"];
+
+  const year = [...q1, ...q2, ...q3, ...q4];
+  document.getElementById("demo14").innerHTML = year;
+</script>
+</body>
+</html>

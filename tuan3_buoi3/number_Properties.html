@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<script>
+  // Number.EPSILON là sự khác biệt giữa số dấu phẩy động nhỏ nhất lớn hơn 1 và 1
+  let x = Number.EPSILON;
+  document.getElementById("demo").innerHTML = x;
+
+  //Number.MAX_VALUE là hằng số đại diện cho số lớn nhất có thể có trong JavaScript
+  let y = Number.MAX_VALUE;
+  document.getElementById("demo1").innerHTML = y;
+
+ //Thuộc tính số không thể được sử dụng trên các biến
+  let b = 6;
+  x.MAX_VALUE // => undefined
+
+  //Number.MIN_VALUElà một hằng số đại diện cho số thấp nhất có thể trong JavaScript
+
+  //Number.MAX_SAFE_INTEGERđại diện cho số nguyên an toàn tối đa trong JavaScript.
+  let z = Number.MAX_SAFE_INTEGER;
+  document.getElementById("demo2").innerHTML = z;
+
+  //Number.MIN_SAFE_INTEGER đại diện cho số nguyên an toàn tối thiểu trong JavaScrip
+
+  //NaNlà một từ dành riêng của JavaScript cho một số không phải là số hợp lệ.
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Regular Expressions</title>
+</head>
+<body>
+<!--
+- Một biểu thức chính quy là một chuỗi các ký tự tạo thành một mẫu tìm kiếm .
+
+- Khi bạn tìm kiếm dữ liệu trong văn bản, bạn có thể sử dụng mẫu tìm kiếm này để mô tả những gì bạn đang tìm kiếm.
+
+- Một biểu thức chính quy có thể là một ký tự đơn hoặc một mẫu phức tạp hơn.
+
+- Biểu thức chính quy có thể được sử dụng để thực hiện tất cả các loại thao tác tìm kiếm văn bản và thay thế văn bản .
+
+Syntax: /pattern/modifiers
+
+ex: /w3schools/i;
+- /w3schools/i   là một biểu thức chính quy.
+- w3schools   là một mẫu (được sử dụng trong tìm kiếm).
+- i   là một công cụ sửa đổi (sửa đổi tìm kiếm không phân biệt chữ hoa chữ thường).
+
+-->
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+    //các biểu thức chính quy thường được sử dụng với hai phương thức chuỗi : search()và replace()
+
+    //search() với biểu thức chính quy
+    let text = "Toi là Kien Trung"
+    let n = text.search(/trung/i)
+    document.querySelector("#demo").innerHTML = n
+
+    //replace() với biểu thức chính quy
+    let text2 = "I'm dev FrontEnd"
+    let chang = text2.replace(/Frontend/i, "Fullstack")
+        document.querySelector("#demo1").innerHTML = chang
+
+    // Phương thức này exec()là một phương thức biểu thức RegExp.
+    //
+    //     Nó tìm kiếm một chuỗi cho một mẫu đã chỉ định và trả về văn bản tìm thấy dưới dạng một đối tượng.
+    //
+    //     Nếu không tìm thấy kết quả khớp, nó sẽ trả về một đối tượng trống (null) .
+    //
+    //     Ví dụ sau tìm kiếm một chuỗi ký tự "e":
+    const obj = /e/.exec("The best things in life are free!");
+    document.getElementById("demo2").innerHTML =
+        "Found " + obj[0] + " in position " + obj.index + " in the text: " + obj.input;
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BigInt</title>
+</head>
+<body>
+<!--Các biến JavaScript BigInt được sử dụng để lưu trữ các giá trị số nguyên lớn quá lớn để được biểu thị bằng một JavaScript thông thường Number.-->
+
+<h3 id="demo"></h3>
+<script>
+  //Số nguyên JavaScript chỉ chính xác tối đa 15 chữ số
+  let x = 999999999999999;
+  let y = 9999999999999999;
+
+  //Để tạo một BigInt, hãy thêm n vào cuối một số nguyên hoặc gọi BigInt():
+  let z = 9999999999999999n;
+  let f = BigInt(1234567890123456789012345)
+
+  //Toán tử BigInt
+  let a = 9007199254740995n;
+  let b = 9007199254740995n;
+  let c = a * b;
+
+  document.getElementById("demo").innerHTML = c;
+
+  //Số nguyên an toàn tối thiểu và tối đa
+  let h = Number.MAX_SAFE_INTEGER;
+  let k = Number.MIN_SAFE_INTEGER;
+</script>
+
+</body>
+</html>

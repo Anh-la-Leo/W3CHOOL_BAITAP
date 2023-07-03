@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date gets Methods</title>
+</head>
+<body>
+<script>
+  //getFullYear() -> getFullYear() trả về năm của một ngày dưới dạng một số có bốn chữ số
+  const d = new Date();
+  d.getFullYear();
+
+  //getMonth() -> getMonth() trả về tháng của một ngày dưới dạng số (0-11)
+  const e = new Date();
+  e.getMonth() + 1
+
+  //Bạn có thể sử dụng một mảng tên để trả về tháng dưới dạng tên:
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  const f = new Date();
+  let month = months[f.getMonth()];
+
+
+  //getDate() -> getDate() trả về ngày của một ngày dưới dạng số (1-31):
+  const g = new Date();
+  g.getDate();
+
+  //getHours() ->  trả về giờ của một ngày dưới dạng số (0-23)
+  const h = new Date();
+  h.getHours();
+
+  //getMinutes() -> getMinutes() trả về số phút của một ngày dưới dạng số (0-59)
+  const m = new Date();
+  m.getMinutes();
+
+
+  //getSeconds() -> trả về giây của một ngày dưới dạng số (0-59)
+  const s = new Date();
+  s.getSeconds();
+
+
+  //getSeconds() -> trả về mili giây của một ngày dưới dạng một số (0-999)
+  const mili = new Date();
+  mili.getMilliseconds();
+
+
+  //getDay() -> trả vè ngày trong tuần (0-6)
+  const day = new Date();
+  day.getDay();
+
+
+  //getTime() trả về số mili giây kể từ ngày 1 tháng 1 năm 1970
+
+  //Date.now()trả về số mili giây kể từ ngày 1 tháng 1 năm 1970
+</script>
+</body>
+</html>
