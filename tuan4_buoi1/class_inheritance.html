@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="test"></p>
+</body>
+<script>
+    class Car{
+        constructor(bor){
+            this.fig=bor;
+        }
+        present(){
+            return 'I have you' +" " + this.fig
+        }
+    }
+    class boy extends Car{
+        constructor(bor,modal){
+            super(bor)
+            this.cotip=modal
+        }show() {
+    return this.present() + ', it is a ' + this.cotip;
+  }
+    }
+    const his=new boy("submid","to commid");
+    document.getElementById("test").innerHTML=his.show()
+</script>
+</html>
