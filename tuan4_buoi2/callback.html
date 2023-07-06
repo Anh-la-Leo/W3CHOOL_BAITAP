@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Callbacks</title>
+</head>
+<body>
+<!--
+- Gọi lại là một hàm được truyền dưới dạng đối số cho một hàm khác
+
+- Kỹ thuật này cho phép một chức năng gọi một chức năng khác
+
+- Chức năng gọi lại có thể chạy sau khi chức năng khác kết thúc
+-->
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+    function myDisplayer(some) {
+        document.getElementById("demo").innerHTML = some;
+    }
+
+    function myFirst() {
+        myDisplayer("Hello");
+    }
+
+    function mySecond() {
+        myDisplayer("Goodbye");
+    }
+
+    mySecond();
+    myFirst();
+
+    //Kiểm soát trình tự
+    // -Đôi khi bạn muốn kiểm soát tốt hơn thời điểm thực hiện một chức năng.
+    // Giả sử bạn muốn thực hiện một phép tính, sau đó hiển thị kết quả.
+    // Bạn có thể gọi một hàm máy tính ( myCalculator), lưu kết quả, sau đó gọi một hàm khác ( myDisplayer) để hiển thị kết quả:
+
+    function displaySum(sum) {
+        document.getElementById("demo1").innerHTML = sum;
+    }
+
+    function myCalculator(num1, num2) {
+        let sum = num1 + num2;
+        displaySum(sum);
+    }
+
+    myCalculator(5, 5);
+
+    //callback
+    // Gọi lại là một hàm được truyền dưới dạng đối số cho một hàm khác.
+
+    function displayTotal(total){
+        document.querySelector("#demo2").innerHTML = total
+    }
+
+    function calTotal (num1, num2, callback){
+        let total = num1 + num2
+        callback(total)
+    }
+
+    calTotal(27, 10, displayTotal)
+</script>
+</body>
+</html>

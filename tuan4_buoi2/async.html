@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Async</title>
+</head>
+<body>
+<!--
+- async và await làm cho promises dễ viết hơn"
+
+- async làm cho hàm trả về một promises
+
+- await làm cho một chức năng chờ một Promise
+-->
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+  //Từ khóa async trước một hàm làm cho hàm trả về một lời hứa
+  async function myFunction() {
+    return "Hello";
+  }
+
+  //Tương đương với
+  function myFunction() {
+    return Promise.resolve("Hello");
+  }
+
+//  EX:
+  function myDisplayer(some) {
+    document.getElementById("demo").innerHTML = some;
+  }
+
+  async function myFunction1() {return "Hello";}
+
+  myFunction1().then(
+          function(value) {myDisplayer(value);},
+          function(error) {myDisplayer(error);}
+  );
+
+
+  //Await Syntax
+  // await  chỉ có thể được sử dụng bên trong một async chức năng
+  //await làm cho hàm tạm dừng thực thi và đợi một promises được giải quyết trước khi tiếp tục
+  async function myDisplay() {
+    let myPromise = new Promise(function(resolve, reject) {
+      resolve("I love You !!");
+    });
+    document.getElementById("demo1").innerHTML = await myPromise;
+  }
+
+  myDisplay();
+
+
+  //Ex: Chờ timeout
+  async function myDisplay1() {
+    let myPromise = new Promise(function(resolve) {
+      setTimeout(function() {resolve("I love You !!");}, 3000);
+    });
+    document.getElementById("demo2").innerHTML = await myPromise;
+  }
+
+  myDisplay1();
+
+
+  //Ex: Chờ 1 file
+  async function getFile() {
+    let myPromise = new Promise(function(resolve) {
+      let req = new XMLHttpRequest();
+      req.open('GET', "mycar.html");
+      req.onload = function() {
+        if (req.status == 200) {
+          resolve(req.response);
+        } else {
+          resolve("File not Found");
+        }
+      };
+      req.send();
+    });
+    document.getElementById("demo3").innerHTML = await myPromise;
+  }
+
+  getFile();
+</script>
+</body>
+</html>

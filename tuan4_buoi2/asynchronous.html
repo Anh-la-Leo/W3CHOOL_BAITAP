@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asynchronous Javascript</title>
+</head>
+<body>
+<!--Các chức năng chạy song song với các chức năng khác được gọi là không đồng bộ
+- callBack thường được sử dụng với các chức năng không đồng bộ.
+-->
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+  function myDisplayer(something) {
+    document.getElementById("demo").innerHTML = something;
+  }
+
+  function myCalculator(num1, num2, myCallback) {
+    let sum = num1 + num2;
+    myCallback(sum);
+  }
+
+  myCalculator(5, 5, myDisplayer);
+
+  //Khi sử dụng hàm JavaScript setTimeout(), bạn có thể chỉ định hàm gọi lại sẽ được thực thi khi hết thời gian chờ:
+  setTimeout(myFunction, 3000);
+
+  function myFunction() {
+    document.getElementById("demo1").innerHTML = "I love You !!";
+  }
+
+  // Thay vì chuyển tên của một hàm làm đối số cho một hàm khác, thay vào đó, bạn luôn có thể chuyển toàn bộ hàm:
+  // setTimeout(function() { myFunction("I love You !!!"); }, 3000);
+  //
+  // function myFunction(value) {
+  //   document.getElementById("demo").innerHTML = value;
+  // }
+
+
+  // Khi sử dụng hàm JavaScript setInterval(), bạn có thể chỉ định hàm gọi lại sẽ được thực thi cho từng khoảng thời gian
+  // (1000 là số mili giây giữa các khoảng thời gian, do đó myFunction()sẽ được gọi mỗi giây)
+  setInterval(myFunctionTime, 1000);
+
+  function myFunctionTime() {
+    let d = new Date();
+    document.getElementById("demo2").innerHTML=
+            d.getHours() + ":" +
+            d.getMinutes() + ":" +
+            d.getSeconds();
+  }
+</script>
+</body>
+</html>
