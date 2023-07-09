@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation API</title>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="getLocation()">Try It</button>
+<script>
+  /**
+   * Locate the User's Position(xác định vị trí của người dùng)
+   * HTML Geolocation API được sử dụng để lấy vị trí địa lý của người dùng.
+   *
+   * Vì điều này có thể ảnh hưởng đến quyền riêng tư nên vị trí này không khả dụng trừ khi người dùng chấp thuận*/
+  const x = document.getElementById("demo");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+  }
+
+  //getCurrentPosition() được sử dụng để xử lý lỗi. Nó chỉ định một chức năng để chạy nếu nó không lấy được vị trí của người dùng:
+
+  /**
+   * Displaying the Result in a Map (Hiển thị kết quả trong bản đồ)
+   * Để hiển thị kết quả trong bản đồ, bạn cần truy cập vào dịch vụ bản đồ, như Google Maps.
+   *
+   * Trong ví dụ bên dưới, kinh độ và vĩ độ được trả về được sử dụng để hiển thị vị trí trong Google Map (sử dụng hình ảnh tĩnh):*/
+  function showPosition(position) {
+    let latlon = position.coords.latitude + "," + position.coords.longitude;
+
+    let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=+latlon+&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+  }
+</script>
+</body>
+</html>

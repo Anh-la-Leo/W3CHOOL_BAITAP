@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Workers API</title>
+</head>
+<body>
+<!--Web worker là một JavaScript chạy ẩn, không ảnh hưởng đến hiệu suất của trang.
+Web Workers là một JavaScript chạy trong nền, độc lập với các tập lệnh khác mà không ảnh hưởng đến hiệu suất của trang.
+Bạn có thể tiếp tục làm bất cứ điều gì mình muốn: nhấp chuột, chọn thứ, v.v. trong khi nhân viên web chạy ẩn.
+-->
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<script>
+  //Ex:  tạo một Web Workers đơn giản đếm số trong nền:
+  let w;
+
+  function startWorker() {
+    if(typeof(w) == "undefined") {
+      w = new Worker("demo_workers.js");
+    }
+    w.onmessage = function(event) {
+      document.getElementById("result").innerHTML = event.data;
+    };
+  }
+
+  function stopWorker() {
+    w.terminate();
+    w = undefined;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web History API</title>
+</head>
+<body>
+<!--
+Web History API cung cấp các phương thức dễ dàng để truy cập đối tượng windows.history.
+
+Đối tượng window.history chứa các URL (Trang web) mà người dùng đã truy cập.
+-->
+<button onClick="myFunction()">Go Back</button>
+
+<button onclick="myFunctionGo()">Go Back 2 Pages</button>
+<script>
+ /**
+  * History back() Method
+  * Phương thức back() tải URL trước đó trong danh sách windows.history.
+  * Nó giống như nhấp vào "mũi tên quay lại" trong trình duyệt của bạn.
+  * */
+ function myFunction() {
+   window.history.back();
+ }
+
+ /**
+  * History go() Method
+  * Phương thức go() tải một URL cụ thể từ danh sách lịch sử:.
+  * */
+ function myFunctionGo() {
+   window.history.go(-2);
+ }
+
+
+ /**
+  * History Object Properties (Thuộc tính đói tượng history)
+  * length -> Trả về số lượng URL trong danh sách lịch sử
+  *
+  * History Object Methods (Phương thức đối tụượng history)
+  * back() -> Tải URL trước đó trong danh sách lịch sử
+  * forward() -> Tải URL tiếp theo trong danh sách lịch sử
+  * go() -> Tải một URL cụ thể từ danh sách lịch sử*/
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Storage API</title>
+</head>
+<body>
+<!--Web Storage API là một cú pháp đơn giản để lưu trữ và truy xuất dữ liệu trong trình duyệt. Nó rất dễ sử dụng:-->
+<p id="demo"></p>
+<script>
+    /**
+     * The localStorage Object (Đối tượng lưu trữ cục bộ)
+     * Đối tượng localStorage cung cấp quyền truy cập vào bộ lưu trữ cục bộ cho một Trang web cụ thể. Nó cho phép bạn lưu trữ, đọc, thêm, sửa đổi và xóa các mục dữ liệu cho miền đó.
+     *
+     * Dữ liệu được lưu trữ không có ngày hết hạn và sẽ không bị xóa khi đóng trình duyệt.
+     *
+     * Dữ liệu sẽ có sẵn trong nhiều ngày, nhiều tuần và nhiều năm.*/
+
+  //Phương thức setItem()
+  //Phương thức localStorage.setItem() lưu trữ một mục dữ liệu trong STORAGE.
+  // Nó nhận một tên và một giá trị làm tham số:
+  localStorage.setItem("name","John Doe");
+  //Phương thức setItem() -> truy xuất một mục dữ liệu từ bộ lưu trữ.
+  document.getElementById("demo").innerHTML = localStorage.getItem("name");
+
+
+  /**
+   * The sessionStorage Object (đối tượng lưu tữ phiên)
+   * Đối tượng sessionStorage giống với đối tượng localStorage.
+   * Sự khác biệt là đối tượng sessionStorage lưu trữ dữ liệu cho một phiên.
+   * Dữ liệu bị xóa khi đóng trình duyệt.*/
+
+  //Phương thức sessionStorage.setItem() lưu trữ một mục dữ liệu trong bộ lưu trữ.
+    sessionStorage.setItem("name", "John Doe");
+    // Phương thức sessionStorage.getItem() truy xuất một mục dữ liệu từ bộ lưu trữ.
+    sessionStorage.getItem("name");
+</script>
+</body>
+</html>

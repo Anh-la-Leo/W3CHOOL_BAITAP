@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validation API</title>
+</head>
+<body>
+<!--Ex1-->
+<input type="number" id="id1" min="100" max="300" required>
+<button onclick="myFunction()">Ok</button>
+<p>Nếu số nhỏ hơn 100 hoặc lớn hơn 300, thông báo lỗi sẽ hiển thị.</p>
+<p id="demo"></p>
+
+
+<!--Ex2-->
+<input id="id2" type="number" max="100">
+<button onclick="myFunction1()">OK</button>
+<p>Nếu số lớn hơn 100 (thuộc tính tối đa của đầu vào), một thông báo lỗi sẽ được hiển thị.</p>
+<p id="demo1"></p>
+
+<script>
+  /**
+   * Validation DOM Methods (Các phương thức DOM xác thực ràng buộc)
+   * checkValidity() -> Trả về true nếu một phần tử đầu vào chứa dữ liệu hợp lệ.
+   * setCustomValidity() -> Đặt thuộc tính validationMessage của phần tử đầu vào.
+   */
+
+  //Ex: Nếu một trường đầu vào chứa dữ liệu không hợp lệ, sẽ hiển thị thông báo:
+  function myFunction(){
+      const inpObj = document.querySelector("#id1")
+      if(!inpObj.checkValidity()){
+          document.querySelector("#demo").innerHTML = inpObj.validationMessage
+      }else{
+          document.querySelector("#demo").innerHTML = "Input Ok"
+      }
+  }
+
+  /**
+  * Constraint Validation DOM Properties (Thuộc tính DOM xác thực ràng buộc)
+   * validity -> Chứa các thuộc tính boolean liên quan đến tính hợp lệ của một phần tử đầu vào.
+   * validationMessage -> Chứa thông báo mà trình duyệt sẽ hiển thị khi tính hợp lệ là sai.
+   * willValidate -> Cho biết nếu một yếu tố đầu vào sẽ được xác thực.
+   * */
+
+  /**
+   * Validity Properties ( Thuộc tính hiệu lực)
+   * customError -> Đặt thành true, nếu thông báo hiệu lực tùy chỉnh được đặt.
+   * patternMismatch -> Đặt thành true, nếu giá trị của phần tử không khớp với thuộc tính mẫu của nó.
+   * rangeOverflow -> Đặt thành true, nếu giá trị của một phần tử lớn hơn thuộc tính max của nó.
+   * rangeUnderflow -> Đặt thành true, nếu giá trị của một phần tử nhỏ hơn thuộc tính tối thiểu của nó.
+   * stepMismatch -> Đặt thành true, nếu giá trị của một phần tử không hợp lệ trên mỗi thuộc tính bước của nó.
+   * tooLong -> Đặt thành true, nếu giá trị của một phần tử vượt quá thuộc tính maxLength của nó.
+   * typeMismatch -> Đặt thành true, nếu giá trị của một phần tử không hợp lệ theo thuộc tính loại của nó.
+   * valueMissing -> Đặt thành true, nếu một phần tử (có thuộc tính bắt buộc) không có giá trị.
+   * valid -> Đặt thành true, nếu giá trị của phần tử hợp lệ.*/
+
+  function myFunction1() {
+      let text;
+      if (document.getElementById("id2").validity.rangeOverflow) {
+          text = "Gía trị quá lớn";
+      } else {
+          text = "Input OK";
+      }
+      document.getElementById("demo1").innerHTML = text;
+  }
+</script>
+</body>
+</html>
