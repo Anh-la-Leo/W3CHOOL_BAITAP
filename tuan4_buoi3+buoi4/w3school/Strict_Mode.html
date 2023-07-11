@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Use Strict</title>
+</head>
+<body>
+<script>
+    //"use strict"; Xác định rằng mã JavaScript sẽ được thực thi ở "strict mode (chế độ nghiêm ngặt)".
+    //với chế độ nghiêm ngặt, bạn không thể sử dụng các biến không được khai báo.
+
+    /**
+     * Declaring Strict Mode (Khai báo chế độ nghiêm ngặt)
+     * Chế độ nghiêm ngặt được khai báo bằng cách thêm "use strict"; đến phần đầu của một tập lệnh hoặc một chức năng.
+     * Được khai báo ở đầu tập lệnh, nó có phạm vi toàn cầu (tất cả mã trong tập lệnh sẽ thực thi ở chế độ nghiêm ngặt):
+     *
+     *
+     * Ex: Được khai báo bên trong một hàm, nó có phạm vi cục bộ (chỉ mã bên trong hàm ở chế độ nghiêm ngặt):
+     * x = 3.14;       // Điều này sẽ không gây ra lỗi.
+     * myFunction();
+     *
+     * function myFunction() {
+     *   "use strict";
+     *   y = 3.14;   // Điều này sẽ gây ra lỗi (y không được xác định)
+     * }
+     * */
+
+    /**
+     * Why Strict Mode?
+     * Chế độ nghiêm ngặt giúp viết JavaScript "an toàn" dễ dàng hơn.
+     * Trong JavaScript thông thường, nhập sai tên biến sẽ tạo ra một biến toàn cục mới. Ở chế độ nghiêm ngặt, điều này sẽ gây ra lỗi, khiến cho việc vô tình tạo biến toàn cục là không thể.
+     * Trong JavaScript bình thường, nhà phát triển sẽ không nhận được bất kỳ phản hồi lỗi nào khi gán giá trị cho các thuộc tính không thể ghi.
+     * Ở chế độ nghiêm ngặt, mọi phép gán cho thuộc tính không thể ghi, thuộc tính chỉ getter, thuộc tính không tồn tại, biến không tồn tại hoặc đối tượng không tồn tại sẽ gây ra lỗi.
+     *
+     * Ex: Không được phép xóa một biến (hoặc đối tượng).
+     * "use strict";
+     * let x = 3.14;
+     * delete x;                // Điều này sẽ gây ra lỗi*/
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Scope</title>
+</head>
+<body>
+<script>
+    /**
+     * Phạm vi xác định khả năng truy cập (khả năng hiển thị) của các biến.
+     * JavaScript có 3 loại phạm vi: + Block scope (phạm vi khối)
+     *                               + Function scope
+     *                               + Global scope (phạm vi toàn cầu)*/
+
+    /**
+     * Block Scope
+     * Các biến được khai báo bên trong khối { } không thể được truy cập từ bên ngoài khối:
+     *
+     * {
+     *   let x = 2;
+     * }
+     * // x can NOT be used here (ngoại trừ khai báo bằng var)*/
+
+
+    /**
+     * Local Scope
+     * Các biến được khai báo trong hàm JavaScript, trở thành Local cho hàm.
+     *
+     * // code here can NOT use carName
+     *
+     * function myFunction() {
+     *   let carName = "Volvo";
+     *   // code here CAN use carName
+     * }
+     *
+     * // code here can NOT use carName*/
+
+    /**
+     * Function Scope
+     * Các biến được xác định bên trong hàm không thể truy cập (hiển thị) từ bên ngoài hàm.
+     * Các biến được khai báo với var, let và const khá giống nhau khi được khai báo bên trong một hàm.
+     *
+     * function myFunction() {
+     *   var carName = "Volvo";   // Function Scope
+     * }
+     * */
+
+
+    /**
+     * Global JavaScript Variables (Biến JavaScript toàn cục)
+     * Một biến được khai báo bên ngoài một hàm, trở thành Global.
+     *
+     * let carName = "Volvo";
+     * // code here can use carName
+     *
+     * function myFunction() {
+     * // code here can also use carName
+     * }
+     * */
+
+
+    /**
+     * Global scope
+     * Các biến được khai báo Toàn cầu (bên ngoài bất kỳ chức năng nào) có Phạm vi Toàn cầu.
+     * Các biến toàn cục có thể được truy cập từ bất kỳ đâu trong chương trình JavaScript.
+     * Các biến được khai báo với var, let và const khá giống nhau khi được khai báo bên ngoài một khối.
+     * Tất cả đều có Phạm vi toàn cầu:
+     *
+     *
+     * Automatically Global (Tự động toàn cầu)
+     * Nếu gán giá trị cho một biến chưa được khai báo, nó sẽ tự động trở thành biến Global.*/
+</script>
+</body>
+</html>

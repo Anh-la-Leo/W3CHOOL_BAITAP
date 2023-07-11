@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Hoisting</title>
+</head>
+<body>
+<script>
+  // Hoisting là hành vi mặc định của JavaScript để di chuyển các khai báo lên trên cùng.
+
+  /**
+   * JavaScript Declarations are Hoisted
+   * Trong JavaScript, một biến có thể được khai báo sau khi nó được sử dụng.
+   * Nói cách khác; một biến có thể được sử dụng trước khi nó được khai báo.
+   *
+   * Ex:
+   * x = 5; // Assign 5 to x
+   *
+   * elem = document.getElementById("demo"); // Find an element
+   * elem.innerHTML = x;                     // Display x in the element
+   *
+   * var x; // Declare x*/
+
+
+  /**
+   * The let and const Keywords
+   * Các biến được xác định bằng let và const được nâng lên đầu khối, nhưng không được khởi tạo.
+   * Các biến được xác định bằng let và const được nâng lên đầu khối, nhưng không được khởi tạo.
+   * Sử dụng biến let trước khi nó được khai báo sẽ dẫn đến ReferenceError.*/
+
+  /**
+   * JavaScript Initializations are Not Hoisted
+   *
+   * var x = 5; // Initialize x
+   * var y;   // Declare y
+   *
+   * elem = document.getElementById("demo"); // Find an element
+   * elem.innerHTML = x + " " + y;       // Display x and y
+   *
+   * y = 7;   // Assign 7 to y*/
+</script>
+</body>
+</html>

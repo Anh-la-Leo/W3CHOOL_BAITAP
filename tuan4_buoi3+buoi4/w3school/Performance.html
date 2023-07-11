@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performance</title>
+</head>
+<body>
+<!--Cách tăng tốc mã JavaScript của bạn.-->
+<script>
+  /**
+   * Reduce Activity in Loops (Giảm hoạt động trong vòng lặp)
+   *
+   * Vòng lặp thường được sử dụng trong lập trình.
+   * Mỗi câu lệnh trong một vòng lặp, bao gồm cả câu lệnh for, được thực thi cho mỗi lần lặp của vòng lặp.
+   * Các câu lệnh hoặc phép gán có thể đặt bên ngoài vòng lặp sẽ làm cho vòng lặp chạy nhanh hơn.
+   *
+   * Ex:
+   *
+   * Bad:
+   * for (let i = 0; i < arr.length; i++) {
+   *
+   * Better Code:
+   * let len = arr.length;
+   * for (let i = 0; i < len; i++) {
+   *
+   * bad code truy cập thuộc tính độ dài của một mảng mỗi khi vòng lặp được lặp lại.
+   * Better Code truy cập thuộc tính độ dài bên ngoài vòng lặp và làm cho vòng lặp chạy nhanh hơn.*/
+
+
+  /**
+   * Reduce DOM Access (Giảm quyền truy cập DOM)
+   *
+   * Truy cập HTML DOM rất chậm so với các câu lệnh JavaScript khác.
+   * Nếu bạn muốn truy cập một phần tử DOM nhiều lần, hãy truy cập nó một lần và sử dụng nó như một biến cục bộ:
+   *
+   * Ex:
+   * const obj = document.getElementById("demo");
+   * obj.innerHTML = "Hello";*/
+
+
+  /**
+   * Avoid Unnecessary Variables (Tránh các biến không cần thiết)
+   *
+   * Không tạo biến mới nếu bạn không định lưu giá trị.
+   * Thường thì bạn có thể thay thế mã như thế này:
+   *
+   * Ex:
+   * let fullName = firstName + " " + lastName;
+   * document.getElementById("demo").innerHTML = fullName;
+   *
+   * -> Thay thế bằng
+   * document.getElementById("demo").innerHTML = firstName + " " + lastName;*/
+</script>
+</body>
+</html>

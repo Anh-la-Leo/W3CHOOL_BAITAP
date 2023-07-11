@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The JavaScript this Keyword</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+  // Create an object:
+  const person = {
+    firstName: "John",
+    lastName: "Doe",
+    id: 5566,
+    fullName : function() {
+      return this.firstName + " " + this.lastName;
+    }
+  };
+
+  // Display data from the object:
+  document.getElementById("demo").innerHTML = person.fullName();
+
+  /**
+   * What is this?
+   * Trong JavaScript, từ khóa this đề cập đến một đối tượng.
+   * Đối tượng nào phụ thuộc vào cách đối tượng này được gọi (được sử dụng hoặc được gọi).
+   * Từ khóa this đề cập đến các đối tượng khác nhau tùy thuộc vào cách nó được sử dụng:*/
+
+  /**
+   * this in a Method
+   * Khi được sử dụng trong một phương thức đối tượng, điều này đề cập đến đối tượng.
+   * Trong ví dụ ở đầu trang này, điều này đề cập đến đối tượng person.
+   * Bởi vì phương thức fullName là một phương thức của đối tượng person.
+   *
+   *
+   * this in a Function (Default)
+   * Trong một hàm, đối tượng toàn cục là ràng buộc mặc định cho điều này.
+   * Trong cửa sổ trình duyệt, đối tượng chung là [object Window]:
+   *
+   *
+   *
+   * this in Event Handlers
+   * Trong trình xử lý sự kiện HTML,this đề cập đến phần tử HTML đã nhận sự kiện:
+   * Ex: <button onclick="this.style.display='none'">
+   *   Click to Remove Me!
+   * </button>*/
+
+
+
+  /**
+   * Explicit Function Binding (Ràng buộc chwusc năng rõ ràng)
+   * Các phương thức call() và apply() là các phương thức JavaScript được xác định trước.
+   * Cả hai đều có thể được sử dụng để gọi một phương thức đối tượng với một đối tượng khác làm đối số.*/
+
+  //Ví dụ bên dưới gọi person1.fullName với person2 làm đối số, điều này đề cập đến person2, ngay cả khi fullName là một phương thức của person1:
+  const person1 = {
+          fullName: function() {
+              return this.firstName + " " + this.lastName;
+          }
+      }
+
+  const person2 = {
+      firstName:"John",
+      lastName: "Doe",
+  }
+
+  let x = person1.fullName.call(person2);
+  document.getElementById("demo1").innerHTML = x;
+
+
+  /**
+   * Function Borrowing (mượn chức năng)
+   * Với phương thức bind(), một đối tượng có thể mượn một phương thức từ một đối tượng khác.*/
+
+  //Ex: Đối tượng member mượn phương thức fullname từ đối tượng person:
+  const person3 = {
+          firstName:"John",
+          lastName: "Doe",
+          fullName: function() {
+              return this.firstName + " " + this.lastName;
+          }
+      }
+
+  const member = {
+      firstName:"Hege",
+      lastName: "Nilsen",
+  }
+
+  let fullName = person3.fullName.bind(member);
+
+  document.getElementById("demo2").innerHTML = fullName();
+</script>
+</body>
+</html>

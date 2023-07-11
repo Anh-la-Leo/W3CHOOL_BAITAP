@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Errors</title>
+</head>
+<body>
+<!--Input validate-->
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="p01"></p>
+
+<!--Finally-->
+<p>Please input a number between 5 and 10:</p>
+<input id="demo1" type="text">
+<button type="button" onclick="myFunctionFinal()">Test Input</button>
+<p id="p02"></p>
+
+<script>
+    /**
+     * Throw, and Try...Catch...Finally
+     * Câu lệnh try định nghĩa một khối mã để chạy (to try).
+     * Câu lệnh catch định nghĩa một khối mã để xử lý bất kỳ lỗi nào.
+     * Câu lệnh finally xác định một khối mã để chạy bất kể kết quả như thế nào.
+     * Câu lệnh throw xác định một lỗi tùy chỉnh.
+     *
+     * Ex: try {
+     *   adddlert("Welcome guest!");
+     * }
+     * catch(err) {
+     *   document.getElementById("demo").innerHTML = err.message;
+     * }*/
+
+
+    /**
+     * JavaScript try and catch
+     * Câu lệnh try cho phép bạn xác định một khối mã sẽ được kiểm tra lỗi trong khi nó đang được thực thi.
+     * Câu lệnh catch cho phép bạn xác định một khối mã sẽ được thực thi, nếu xảy ra lỗi trong khối thử.
+     *
+     * Syntax:
+     * try {
+     *   Block of code to try
+     * }
+     * catch(err) {
+     *   Block of code to handle errors
+     * }
+     *
+     *
+     * JavaScript Throws Errors
+     * Khi xảy ra lỗi, JavaScript thường sẽ dừng và tạo thông báo lỗi.
+     * Thuật ngữ kỹ thuật cho điều này là: JavaScript sẽ đưa ra một ngoại lệ (throw an error).
+     *
+     *
+     * The throw Statement
+     * Câu lệnh throw cho phép bạn tạo một lỗi tùy chỉnh.
+     * Về mặt kỹ thuật, bạn có thể ném ngoại lệ (throw an error).
+     * Ngoại lệ có thể là String, a Number, a Boolean or an Object:
+     * throw "Too big";    // throw a text
+     * throw 500;          // throw a number*/
+
+
+    /**
+     * Input Validation Example (Ví dụ xác thực đầu vào)
+     * Ví dụ này kiểm tra đầu vào. Nếu giá trị sai, một ngoại lệ (err) sẽ được đưa ra.
+     * Ngoại lệ (err) bị bắt bởi câu lệnh catch và thông báo lỗi tùy chỉnh được hiển thị:*/
+
+    function myFunction() {
+        const message = document.getElementById("p01");
+        message.innerHTML = "";
+        let x = document.getElementById("demo").value;
+        try {
+            if(x.trim() == "")  throw "empty";
+            if(isNaN(x)) throw "not a number";
+            x = Number(x);
+            if(x < 5)  throw "too low";
+            if(x > 10)   throw "too high";
+        }
+        catch(err) {
+            message.innerHTML = "Input is " + err;
+        }
+    }
+
+    /**
+     * HTML Validation (Xác thực HTML)
+     * <input id="demo" type="number" min="5" max="10" step="1">*/
+
+    /**
+     * The finally Statement
+     * Câu lệnh finally cho phép bạn thực thi mã, sau try and catch, bất kể kết quả như thế nào:
+     * Syntax:
+     * try {
+     *   Block of code to try
+     * }
+     * catch(err) {
+     *   Block of code to handle errors
+     * }
+     * finally {
+     *   Block of code to be executed regardless of the try / catch result
+     * }*/
+    function myFunctionFinal() {
+        const message = document.getElementById("p02");
+        message.innerHTML = "";
+        let x = document.getElementById("demo1").value;
+        try {
+            if(x.trim() == "")  throw "is empty";
+            if(isNaN(x)) throw "is not a number";
+            x = Number(x);
+            if(x > 10)   throw "is too high";
+            if(x < 5)  throw "is too low";
+        }
+        catch(err) {
+            message.innerHTML = "Input " + err;
+        }
+        finally {
+            alert("xong r")
+        }
+    }
+</script>
+</body>
+</html>
